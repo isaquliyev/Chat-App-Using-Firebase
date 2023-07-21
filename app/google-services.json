@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "720064051615",
+    "project_id": "fcm-example-77743",
+    "storage_bucket": "fcm-example-77743.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720064051615:android:bbbd33da0f7eba257de5aa",
+        "android_client_info": {
+          "package_name": "com.example.chatapprealtime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720064051615-9qakfmqh7827eg0ef99k5r274p5nnl07.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOPPjHq8p-MNXCZctYkGirWH0arGV3n4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720064051615-9qakfmqh7827eg0ef99k5r274p5nnl07.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720064051615:android:479065c63a82b2237de5aa",
+        "android_client_info": {
+          "package_name": "com.example.fcmexample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720064051615-a0safdq8ln7m632rsd4i2md1ld8qpjme.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fcmexample",
+            "certificate_hash": "a4f284cb32d4eae15df02acceabc8cbaff91fe41"
+          }
+        },
+        {
+          "client_id": "720064051615-9qakfmqh7827eg0ef99k5r274p5nnl07.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOPPjHq8p-MNXCZctYkGirWH0arGV3n4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720064051615-9qakfmqh7827eg0ef99k5r274p5nnl07.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/gradientBG"
+        android:layout_width="@dimen/d_95"
+        android:layout_height="@dimen/d_140"
+        android:layout_marginRight="@dimen/d_15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/chatroom_shape" />
+
+    <TextView
+        android:id="@+id/nameId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto400"
+        android:letterSpacing="0.1"
+        android:text="@string/name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/s_12"
+        app:layout_constraintBottom_toTopOf="@+id/surnameId"
+        app:layout_constraintStart_toStartOf="@+id/surnameId" />
+
+    <TextView
+        android:id="@+id/surnameId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/d_10"
+        android:layout_marginBottom="@dimen/d_30"
+        android:fontFamily="@font/roboto400"
+        android:letterSpacing="0.1"
+        android:text="@string/surname"
+        android:textColor="@color/white"
+        android:textSize="@dimen/s_12"
+        app:layout_constraintBottom_toBottomOf="@+id/gradientBG"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/d_63"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/surnameId"
+        app:srcCompat="@drawable/favourite" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
