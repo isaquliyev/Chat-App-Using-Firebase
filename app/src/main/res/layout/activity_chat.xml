@@ -4,6 +4,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChatActivity">
+    tools:context=".ChatActivity"
+    android:background="@color/bg">
 
+    <ImageView
+        android:id="@+id/currentUserImageID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="51dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile_photo" />
+
+    <ImageView
+        android:id="@+id/SecondUserImageID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/currentUserImageID"
+        app:layout_constraintTop_toTopOf="@+id/currentUserImageID"
+        app:srcCompat="@drawable/profile_photo" />
+
+    <TextView
+        android:id="@+id/currentUserNameID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        android:letterSpacing="0.1"
+        android:text="Current User"
+        android:textColor="@color/white"
+        android:textSize="@dimen/d_15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/SecondUserImageID" />
+
+    <TextView
+        android:id="@+id/secondUserNameID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:letterSpacing="0.1"
+        android:text="Second User"
+        android:textColor="@color/white"
+        android:textSize="@dimen/s_15"
+        app:layout_constraintEnd_toEndOf="@+id/currentUserNameID"
+        app:layout_constraintTop_toBottomOf="@+id/currentUserNameID" />
+
+    <EditText
+        android:id="@+id/chatEditTextID"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/search_bar_shape"
+        android:ems="10"
+        android:hint="Write"
+        android:inputType="text"
+        android:paddingVertical="10dp"
+        android:paddingLeft="@dimen/d_15"
+        android:textColor="@color/searchTextColor"
+        android:textColorHint="@color/searchTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/sendID"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/cameraID"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/chatEditTextID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/chatEditTextID"
+        app:srcCompat="@drawable/green_shape" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/cameraID"
+        app:layout_constraintEnd_toEndOf="@+id/cameraID"
+        app:layout_constraintStart_toStartOf="@+id/cameraID"
+        app:layout_constraintTop_toTopOf="@+id/cameraID"
+        app:srcCompat="@drawable/photo" />
+
+    <ImageView
+        android:id="@+id/sendID"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cameraID"
+        app:layout_constraintEnd_toStartOf="@+id/cameraID"
+        app:layout_constraintTop_toTopOf="@+id/cameraID"
+        app:srcCompat="@drawable/comment" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/messageRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/chatEditTextID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SecondUserImageID" />
 </androidx.constraintlayout.widget.ConstraintLayout>

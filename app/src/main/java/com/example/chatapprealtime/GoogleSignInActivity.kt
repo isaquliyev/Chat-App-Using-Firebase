@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.example.chatapprealtime.databinding.ActivityGoogleSignInBinding
+import com.example.chatapprealtime.model.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -13,6 +14,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 
 
@@ -24,6 +30,7 @@ class GoogleSignInActivity : Activity() {
     // [START declare_auth]
     private lateinit var auth: FirebaseAuth
     // [END declare_auth]
+    private lateinit var databaseRef: DatabaseReference
 
     private lateinit var googleSignInClient: GoogleSignInClient
 
@@ -32,6 +39,8 @@ class GoogleSignInActivity : Activity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGoogleSignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        databaseRef =  FirebaseDatabase.getInstance().reference
 
         // [START config_signin]
         // Configure Google Sign In
@@ -61,6 +70,19 @@ class GoogleSignInActivity : Activity() {
         updateUI(currentUser)
 
         if (currentUser!= null ) {
+            databaseRef.child("User").orderByChild("email").equalTo(auth.currentUser?.email.toString()).addListenerForSingleValueEvent( object :
+                ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (!snapshot.exists()) {
+                        databaseRef.child("User").push().setValue(User(auth.currentUser?.displayName.toString(), auth.currentUser?.photoUrl.toString(), auth.currentUser?.uid.toString(), auth.currentUser?.email.toString()))
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // hec ne
+                }
+                })
+
             startActivity(Intent(this@GoogleSignInActivity, MainActivity::class.java))
             finish()
         }

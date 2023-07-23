@@ -9,7 +9,7 @@
     android:paddingBottom="13dp">
 
     <ImageView
-        android:id="@+id/profileId"
+        android:id="@+id/profileImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,8 +26,8 @@
         android:text="@string/name"
         android:textColor="@color/white"
         android:textSize="@dimen/s_15"
-        app:layout_constraintStart_toEndOf="@+id/profileId"
-        app:layout_constraintTop_toTopOf="@+id/profileId" />
+        app:layout_constraintStart_toEndOf="@+id/profileImage"
+        app:layout_constraintTop_toTopOf="@+id/profileImage" />
 
     <TextView
         android:id="@+id/emainId"

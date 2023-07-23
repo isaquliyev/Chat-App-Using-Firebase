@@ -1,25 +1,21 @@
 package com.example.chatapprealtime.adapter
 
+import android.icu.text.Transliterator.Position
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.chatapprealtime.R
-import com.example.chatapprealtime.model.SingleChatModel
+import com.example.chatapprealtime.databinding.ChatRowBinding
+import com.example.chatapprealtime.model.Message
 
-class ChatAdapter( val list : List<SingleChatModel>, val listener: OnItemClickListener): RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
+class ChatAdapter(var list : List <Message> , var currentUid : String ) : RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var nameId = itemView.findViewById<TextView>(R.id.nameId2)
-        var email = itemView.findViewById<TextView>(R.id.emainId)
+    inner class ViewHolder( val binding : ChatRowBinding) : RecyclerView.ViewHolder(binding.root) {
+
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatAdapter.ViewHolder {
-        return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.chat_recycler_row, parent, false)
-        )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(ChatRowBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -27,10 +23,14 @@ class ChatAdapter( val list : List<SingleChatModel>, val listener: OnItemClickLi
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.nameId.setText(list.get(position).name)
-        holder.email.setText(list.get(position).email)
-        holder.itemView.setOnClickListener {
-            listener.onItemClick()
+        if(list[position].senderUid.equals(currentUid)) {
+            holder.binding.receiverLinearLayout.visibility = View.GONE
+            holder.binding.sentMessageID.text = list[position].message
+        }
+        else{
+            holder.binding.senderLinearLayout.visibility = View.GONE
+            holder.binding.receivedMessageID.text = list[position].message
         }
     }
+
 }
