@@ -104,6 +104,7 @@ class ChatActivity : AppCompatActivity() {
                     if(snapshot.exists()) {
                         messages.add(snapshot.getValue<Message>() as Message)
                         binding.messageRecyclerView.adapter?.notifyDataSetChanged()
+                        binding.messageRecyclerView.scrollToPosition(messages.size - 1)
                     }
 
                 }
